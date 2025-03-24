@@ -11,13 +11,13 @@
 
 <body>
     <nav>
-        <div class="container parent-delay">
-            <div class="logo reveal">
+        <div class="container reveal parent-delay">
+            <div class="logo reveal-child" data-item-show="1">
                 <a href="./">
                     <img src="static/images/logo.svg" alt="Logo">
                 </a>
             </div>
-            <div class="options reveal">
+            <div class="options reveal-child" data-item-show="2">
                 <a href="./search" class="search">
                     <img src="static/images/search.svg" alt="Search">
                 </a>
@@ -35,12 +35,12 @@
                     </div>
                     <ul class="list-links">
                         <li class="active"><a href="/">HOME</a></li>
-                        <li><a href="/aboutus">ABOUT US</a></li>
-                        <li><a href="/ourportfolio">OUR PORTFOLIO</a></li>
-                        <li><a href="/oursubsidiaries">OUR SUBSIDIARIES</a></li>
-                        <li><a href="/newsroom">NEWSROOM</a></li>
-                        <li><a href="/careers">CAREERS</a></li>
-                        <li><a href="/partnerwithus">PARTNER WITH US</a></li>
+                        <li><a href="./aboutus">ABOUT US</a></li>
+                        <li><a href="./ourportfolio">OUR PORTFOLIO</a></li>
+                        <li><a href="./oursubsidiaries">OUR SUBSIDIARIES</a></li>
+                        <li><a href="./newsroom">NEWSROOM</a></li>
+                        <li><a href="./careers">CAREERS</a></li>
+                        <li><a href="./partnerwithus">PARTNER WITH US</a></li>
                     </ul>
                 </div>
             </div>
@@ -51,7 +51,19 @@
     </div>
     <div class="banner">
         <div class="container">
-            
+            <div class="hero-container reveal parent-delay">
+                <h1 class="title reveal-child" data-item-show="2">
+                    Gateway to Excellence
+                </h1>
+                <div class="centered-image reveal-child reveal-center-banner" data-item-show="1">
+                    <img src="static/images/heroLogo.png" alt="Logo">
+                </div>
+                <div class="description reveal-child" data-item-show="3">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, aperiam cupiditate porro magni
+                    deserunt a autem excepturi at eum dolorum atque iure modi dolor repellat, voluptas quas perferendis
+                    quae fuga?
+                </div>
+            </div>
         </div>
     </div>
     <script src="static/js/index.js"></script>
