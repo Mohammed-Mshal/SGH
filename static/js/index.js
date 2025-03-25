@@ -64,12 +64,12 @@ window.addEventListener("scroll", () => {
     const bannerRect = banner.getBoundingClientRect();
     const scrollPercentage = Math.max(
       0,
-      Math.min(1, -bannerRect.top / bannerRect.height),
+      Math.min(1, -bannerRect.top / bannerRect.height)
     );
 
     // Scale from 1 to 0.8 as user scrolls
-    const scale = 1 + scrollPercentage *2;
-    const opacity = 1 - scrollPercentage *2;
+    const scale = 1 + scrollPercentage * 2;
+    const opacity = 1 - scrollPercentage * 2;
 
     // Only apply transform if image is still in view
     if (bannerRect.bottom > 0) {
@@ -77,4 +77,26 @@ window.addEventListener("scroll", () => {
       centeredImage.style.opacity = opacity;
     }
   }
+});
+
+const listDescription = document.querySelectorAll(
+  ".about .list-description .description"
+);
+const descriptionTaps = document.querySelectorAll(
+  ".about .description-taps .tab-link"
+);
+descriptionTaps.forEach((tapBTN) => {
+  tapBTN.addEventListener("click", () => {
+    listDescription.forEach((e) => {
+      if (e.id.includes(tapBTN.getAttribute("data-tap"))) {
+        e.classList.add("active");
+      } else {
+        e.classList.remove("active");
+      }
+    });
+    descriptionTaps.forEach((e) => {
+      e.classList.remove("active");
+    });
+    tapBTN.classList.add("active");
+  });
 });
