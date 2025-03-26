@@ -10,7 +10,7 @@
 
 .reveal .reveal-button {
   opacity: 0;
-  transition: opacity 0.5s 0.4s, 0.5s background cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.5s 1s, 0.5s background cubic-bezier(0.4, 0, 0.2, 1);
 }
 .reveal .reveal-child {
   opacity: 0;
@@ -18,11 +18,18 @@
 }
 .reveal .reveal-child.reveal-center-banner {
   transform: rotateY(720deg) scale(0);
-  -webkit-transform: rotateY(720deg) scale(0);
-  -moz-transform: rotateY(720deg) scale(0);
-  -ms-transform: rotateY(720deg) scale(0);
-  -o-transform: rotateY(720deg) scale(0);
 }
+.reveal .reveal-child.logo-icon {
+  transform: scale(2) skew(30deg, 30deg) rotate(-35deg);
+  opacity: 0;
+  transition: opacity 2s 3s, transform 5s 2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.reveal .item .reveal-child:is(h2) {
+  transform: translateY(40px);
+  opacity: 0;
+  transition: opacity 2s 5s, transform 1s 5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.reveal.active .item .reveal-child,
 .reveal.active .reveal-button,
 .reveal.active .reveal-child {
   opacity: 1;
@@ -31,6 +38,12 @@
   -moz-transform: rotateY(0) scale(1);
   -ms-transform: rotateY(0) scale(1);
   -o-transform: rotateY(0) scale(1);
+  translate: 0 0;
+}
+.reveal.active .item .reveal-child.logo-icon,
+.reveal.active .reveal-button.logo-icon,
+.reveal.active .reveal-child.logo-icon {
+  transform: scale(1) skew(0, 0) rotate(0);
 }
 
 .parent-delay.reveal.active .reveal-child[data-item-show="1"] {
@@ -66,7 +79,7 @@
 }
 
 * {
-  font-size: 8pt;
+  font-size: 10pt;
 }
 
 nav {
@@ -188,7 +201,7 @@ nav .container .options .links .list-links li {
 nav .container .options .links .list-links li a {
   padding-inline: 12px;
   text-decoration: none;
-  font-size: 9pt;
+  font-size: 10pt;
   padding-block: 4px;
   color: #fff;
   font-weight: bold;
@@ -211,7 +224,7 @@ nav .container .options .links .list-links.toggled li {
 nav.scrolled {
   background: rgba(51, 51, 51, 0.4);
   -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 nav.scrolled .container {
   padding-block: 10px;
@@ -321,7 +334,7 @@ nav.scrolled .container .logo a img {
 .banner .container .hero-container .description {
   color: #fff;
   max-width: 30%;
-  font-size: clamp(8pt, 2vw, 12pt);
+  font-size: 10pt;
   font-weight: 500;
 }
 @media (max-width: 992px) {
@@ -367,6 +380,7 @@ nav.scrolled .container .logo a img {
 
 .about .container {
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 .about .container .left-side {
@@ -393,11 +407,11 @@ nav.scrolled .container .logo a img {
 .about .container .left-side .list-description .description {
   height: 100%;
   color: #fff;
-  font-size: clamp(8pt, 2.4vw, 12pt);
+  font-size: 10pt;
   max-height: 0px;
   overflow: hidden;
   opacity: 0;
-  transition: 0.5s all ease-in-out;
+  transition: 0.5s opacity ease-in-out, 0.5s max-height ease-in-out;
 }
 .about .container .left-side .list-description .description.active {
   opacity: 1;
@@ -413,11 +427,77 @@ nav.scrolled .container .logo a img {
 .about .container .left-side .description-taps .tab-link {
   cursor: pointer;
   margin-block: 0;
-  font-size: clamp(10pt, 3vw, 12pt);
+  font-size: 12pt;
   transition: 0.5s all ease-in-out;
 }
 .about .container .left-side .description-taps .tab-link.active, .about .container .left-side .description-taps .tab-link:hover {
   color: #59bdc1;
+}
+.about .container .right-side {
+  position: relative;
+  max-width: 40%;
+  flex: 1;
+  display: flex;
+}
+.about .container .right-side .logo-icon {
+  width: 200px;
+}
+.about .container .right-side .item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: absolute;
+}
+.about .container .right-side .item h2 {
+  color: #FFF;
+  font-size: clamp(12pt, 2vw, 16pt);
+  margin: 0;
+  padding: 4px 20px;
+  position: relative;
+}
+.about .container .right-side .item h2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transform: skew(-30deg);
+}
+.about .container .right-side .item h2.title::before {
+  border: 1px solid;
+  border-color: #FFF transparent transparent #FFF;
+}
+.about .container .right-side .item h2.value {
+  color: #59bdc1;
+}
+.about .container .right-side .item h2.value::before {
+  display: none;
+}
+.about .container .right-side .item:nth-child(4) h2.title::before, .about .container .right-side .item:nth-child(5) h2.title::before {
+  display: none;
+}
+.about .container .right-side .item:nth-child(4) h2.value::before, .about .container .right-side .item:nth-child(5) h2.value::before {
+  border: 1px solid;
+  border-color: transparent transparent #FFF #FFF;
+  display: block;
+  transform: skew(30deg);
+}
+.about .container .right-side .item:nth-child(2) {
+  top: -120px;
+  left: 10%;
+}
+.about .container .right-side .item:nth-child(3) {
+  top: -60px;
+  left: 250px;
+}
+.about .container .right-side .item:nth-child(4) {
+  top: 80px;
+  left: 250px;
+}
+.about .container .right-side .item:nth-child(5) {
+  top: 140px;
+  left: 10%;
 }
 @media (max-width: 992px) {
   .about .container {
@@ -426,6 +506,37 @@ nav.scrolled .container .logo a img {
   .about .container .right-side,
   .about .container .left-side {
     max-width: 100%;
+  }
+  .about .container .right-side {
+    padding-bottom: 160px;
+    margin-top: 60px;
+  }
+  .about .container .right-side .item:nth-child(2) {
+    top: -120px;
+    left: -70px;
+  }
+  .about .container .right-side .item:nth-child(2) h2.title::before {
+    display: block;
+    border: 1px solid;
+    border-color: #FFF #FFF transparent transparent;
+    transform: skew(35deg);
+  }
+  .about .container .right-side .item:nth-child(3) {
+    top: -120px;
+    left: 120px;
+  }
+  .about .container .right-side .item:nth-child(4) {
+    top: 150px;
+    left: 120px;
+  }
+  .about .container .right-side .item:nth-child(5) {
+    top: 150px;
+    left: -20px;
+  }
+  .about .container .right-side .item:nth-child(5) h2.value::before {
+    border: 1px solid;
+    border-color: transparent #FFF #FFF transparent;
+    transform: skew(-35deg);
   }
   .about .container .left-side {
     align-items: center;

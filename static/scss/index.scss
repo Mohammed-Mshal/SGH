@@ -14,13 +14,21 @@ $accent-color: #007bff;
 $text-color: #212121;
 $primary-text-color: #59bdc1;
 $light-color: #fff;
+$normal-font:10pt;
+$button-font:10pt;
+$font-xl:clamp(24pt, 5.4vw, 48pt);
+$font-lg:clamp(20pt, 4vw, 30pt);
+$font-semi-lg:clamp(12pt,2vw,16pt);
+$font-md:14pt;
+$font-sm:12pt;
 * {
   font-family: "Myriad Pro Regular", sans-serif;
 }
 .reveal {
   .reveal-button{
     opacity: 0;
-    transition:opacity 0.5s 0.4s,
+    transition:
+    opacity 0.5s 1s,
     .5s background cubic-bezier(0.4, 0, 0.2, 1);
   }
   .reveal-child {
@@ -30,14 +38,27 @@ $light-color: #fff;
       transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     &.reveal-center-banner {
       transform: rotateY(720deg) scale(0);
-      -webkit-transform: rotateY(720deg) scale(0);
-      -moz-transform: rotateY(720deg) scale(0);
-      -ms-transform: rotateY(720deg) scale(0);
-      -o-transform: rotateY(720deg) scale(0);
+    }
+    &.logo-icon{
+      transform: scale(2) skew(30deg,30deg) rotate(-35deg);
+      opacity: 0;
+      transition :opacity 2s 3s,
+      transform 5s 2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+  }
+  .item{
+    .reveal-child{
+      &:is(h2){
+        transform: translateY(40px);
+        opacity: 0;
+        transition :opacity 2s 5s,
+        transform 1s 5s cubic-bezier(0.4, 0, 0.2, 1);
+      }   
     }
   }
-
   &.active {
+    .item .reveal-child,
     .reveal-button,
     .reveal-child {
       opacity: 1;
@@ -46,6 +67,10 @@ $light-color: #fff;
       -moz-transform: rotateY(0) scale(1);
       -ms-transform: rotateY(0) scale(1);
       -o-transform: rotateY(0) scale(1);
+      translate: 0 0;
+      &.logo-icon{
+        transform: scale(1) skew(0,0) rotate(0)
+      }
     }
   }
 }
@@ -81,7 +106,7 @@ $light-color: #fff;
   }
 }
 * {
-  font-size: 8pt;
+  font-size: $normal-font;
 }
 nav {
   position: fixed;
@@ -195,7 +220,7 @@ nav {
             a {
               padding-inline: 12px;
               text-decoration: none;
-              font-size: 9pt;
+              font-size: $normal-font;
               padding-block: 4px;
               color: #fff;
               font-weight: bold;
@@ -222,6 +247,7 @@ nav {
   }
   &.scrolled {
     background: rgba(51, 51, 51, 0.4);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     .container {
       padding-block: 10px;
@@ -293,7 +319,7 @@ nav {
   }
 }
 .custom-button{
-  font-size: 10pt;
+  font-size: $button-font;
   border: 1px solid $primary-text-color;
   border-radius: 16px;
   color: #FFF;
@@ -321,7 +347,7 @@ nav {
       .title {
         color: #fff;
         font-weight: bold;
-        font-size: clamp(24pt, 5.4vw, 48pt);
+        font-size: $font-xl;
         max-width: 30%;
       }
       .centered-image {
@@ -330,7 +356,7 @@ nav {
       .description {
         color: #fff;
         max-width: 30%;
-        font-size: clamp(8pt, 2vw, 12pt);
+        font-size: $normal-font;
         font-weight: 500;
       }
       @media (max-width: 992px) {
@@ -377,6 +403,7 @@ nav {
 .about {
   .container {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     .left-side {
       max-width: 40%;
@@ -388,7 +415,7 @@ nav {
         margin-bottom: 8px;
       }
       .title {
-        font-size: clamp(20pt, 4vw, 30pt);
+        font-size: $font-lg;
         color: #fff;
         margin: 0;
         &.primary-text {
@@ -400,11 +427,11 @@ nav {
         .description {
           height: 100%;
           color: #fff;
-          font-size: clamp(8pt, 2.4vw, 12pt);
+          font-size: $normal-font;
           max-height: 0px;
           overflow: hidden;
           opacity: 0;
-          transition: 0.5s all ease-in-out;
+          transition: 0.5s opacity ease-in-out,0.5s max-height ease-in-out;
           &.active {
             opacity: 1;
             max-height: none;
@@ -420,12 +447,90 @@ nav {
         .tab-link{
           cursor: pointer;
           margin-block: 0;
-          font-size: clamp(10pt,3vw,12pt);
+          font-size: $font-sm;
             transition: .5s all ease-in-out;
             &.active,
             &:hover{
                 color: $primary-text-color;
             }
+        }
+      }
+    }
+    .right-side{
+      position: relative;
+      max-width: 40%;
+      flex: 1;
+      display: flex;
+      .logo-icon{
+        width: 200px;
+      }
+      .item{
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        position: absolute;
+        h2{
+          color: #FFF;
+          font-size:$font-semi-lg;
+          margin: 0;
+          padding: 4px 20px;
+          position: relative;
+          &::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            transform: skew(-30deg);
+          }
+          &.title{
+            &::before{
+              border:1px solid;
+              border-color: #FFF transparent transparent #FFF;   
+            }
+            
+          }
+          &.value{
+            color: $primary-text-color;
+            &::before{  
+              display: none;
+            }  
+          }
+        }
+        &:nth-child(4),
+        &:nth-child(5){
+          h2{
+            &.title{
+              &::before{
+                display: none;
+              }
+            }
+            &.value{
+              &::before{
+                border:1px solid;
+                border-color:  transparent transparent #FFF #FFF;   
+                display: block;
+                transform: skew(30deg);
+              }
+            }
+          }
+        }
+        &:nth-child(2) {
+          top: -120px;
+          left: 10%;
+        }
+        &:nth-child(3) {
+          top: -60px;
+          left: 250px;
+        }
+        &:nth-child(4) {
+          top: 80px;
+          left: 250px;
+        }
+        &:nth-child(5) {
+          top: 140px;
+          left: 10%;
         }
       }
     }
@@ -435,6 +540,40 @@ nav {
       .left-side{
         max-width: 100%;
       }
+      .right-side{
+        padding-bottom: 160px;
+        margin-top: 60px;
+        .item:nth-child(2){
+          top: -120px;
+          left: -70px;
+          h2{
+            &.title::before{
+              display: block;
+              border: 1px solid;
+              border-color: #FFF #FFF transparent transparent;
+              transform: skew(35deg);
+            }
+          }
+        }
+        .item:nth-child(3){
+          top: -120px;
+          left: 120px;
+        }
+        .item:nth-child(4) {
+          top: 150px;
+          left: 120px;
+        }
+        .item:nth-child(5) {
+          top: 150px;
+          left: -20px;
+          h2.value::before{
+            border: 1px solid;
+            border-color: transparent #FFF #FFF transparent;  
+            transform: skew(-35deg);
+          }
+        }
+      }
+      
       .left-side{
         align-items: center;
         text-align: center;
@@ -442,3 +581,4 @@ nav {
     }
   }
 }
+
