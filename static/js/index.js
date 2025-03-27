@@ -64,7 +64,7 @@ window.addEventListener("scroll", () => {
     const bannerRect = banner.getBoundingClientRect();
     const scrollPercentage = Math.max(
       0,
-      Math.min(1, -bannerRect.top / bannerRect.height)
+      Math.min(1, -bannerRect.top / bannerRect.height),
     );
 
     // Scale from 1 to 0.8 as user scrolls
@@ -80,10 +80,10 @@ window.addEventListener("scroll", () => {
 });
 
 const listDescription = document.querySelectorAll(
-  ".about .list-description .description"
+  ".about .list-description .description",
 );
 const descriptionTaps = document.querySelectorAll(
-  ".about .description-taps .tab-link"
+  ".about .description-taps .tab-link",
 );
 descriptionTaps.forEach((tapBTN) => {
   tapBTN.addEventListener("click", () => {
@@ -100,3 +100,46 @@ descriptionTaps.forEach((tapBTN) => {
     tapBTN.classList.add("active");
   });
 });
+
+// Move Elements When Scroll Out
+
+const leftSide = document.querySelector(".about .left-side");
+const rightSide = document.querySelector(".about .right-side");
+const about = document.querySelector(".about");
+
+window.addEventListener("scroll", () => {
+  if (about && leftSide && rightSide) {
+    const aboutRect = about.getBoundingClientRect();
+    const halfwayPoint = window.innerHeight / 5;
+    const scrollPercentage = Math.max(
+      0,
+      Math.min(1, (halfwayPoint - aboutRect.top) / halfwayPoint),
+    );
+    // Scale from 1 to 0.8 as user scrolls
+    const scale = 1 + scrollPercentage * 0.2;
+    const opacity = 1 - scrollPercentage * 1;
+    const translateX = 1 + scrollPercentage * 200;
+    const translateY = 1 + scrollPercentage * 10;
+
+    // Only apply transform if image is still in view
+    if (aboutRect.bottom > 0) {
+      leftSide.style.transform = `scale(${scale})`;
+      leftSide.style.translate = `${-translateX}px ${-translateY}px`;
+      leftSide.style.opacity = opacity;
+      rightSide.style.transform = `scale(${scale})`;
+      rightSide.style.translate = `${translateX}px ${-translateY}px`;
+      rightSide.style.opacity = opacity;
+    }
+  }
+});
+
+const slidersPortfolio=document.querySelectorAll('.portfolio .container-sliders .swiper')
+
+slidersPortfolio.forEach((slider)=>{
+  new Swiper(slider,{
+    loop: true,
+    speed: 400,
+    slidesPerView:1,
+    centeredSlides:true
+  })
+})
