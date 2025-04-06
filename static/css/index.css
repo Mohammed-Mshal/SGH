@@ -918,8 +918,11 @@ nav.scrolled .container .logo a img {
   position: absolute;
   right: 0;
   top: -80px;
+  border-radius: 50%;
+  overflow: hidden;
   z-index: -1;
 }
+.partner .background-image video,
 .partner .background-image img {
   -o-object-fit: cover;
      object-fit: cover;
@@ -996,6 +999,7 @@ footer .container {
   background: linear-gradient(to bottom, rgba(89, 190, 193, 0.15), black);
   position: relative;
   z-index: 10;
+  box-shadow: 0 0 20px 0;
 }
 footer .container .toTopBTN {
   position: absolute;

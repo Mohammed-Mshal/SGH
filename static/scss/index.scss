@@ -976,7 +976,10 @@ nav {
     position: absolute;
     right: 0;
     top: -80px;
+     border-radius: 50%;
+     overflow: hidden;
     z-index: -1;
+    video,
     img{
       object-fit: cover;
       height: 100%;
@@ -1056,6 +1059,7 @@ footer{
     background: linear-gradient(to bottom, $primary-text-color-opacity,black);
     position: relative;
     z-index: 10;
+    box-shadow:  0 0 20px 0;
     .toTopBTN{
       position: absolute;
       bottom: 60px;
