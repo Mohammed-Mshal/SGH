@@ -196,3 +196,11 @@ portfolioTaps.forEach((tapBTN) => {
     tapBTN.classList.add("active");
   });
 });
+
+
+// To Top Button
+const topBTN=document.querySelector('.toTopBTN')
+topBTN&&
+topBTN.addEventListener('click',()=>{
+  window.scrollTo({top:0,behavior:'smooth'})
+})
