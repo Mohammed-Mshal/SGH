@@ -110,10 +110,10 @@ const about = document.querySelector(".about");
 window.addEventListener("scroll", () => {
   if (about && leftSide && rightSide) {
     const aboutRect = about.getBoundingClientRect();
-    const halfwayPoint = window.innerHeight / 5;
+    const halfwayPoint = window.innerHeight /1;
     const scrollPercentage = Math.max(
       0,
-      Math.min(1, (halfwayPoint - aboutRect.top) / halfwayPoint),
+      Math.min(1, (halfwayPoint - aboutRect.bottom) / halfwayPoint),
     );
     // Scale from 1 to 0.8 as user scrolls
     const scale = 1 + scrollPercentage * 0.2;
@@ -133,13 +133,66 @@ window.addEventListener("scroll", () => {
   }
 });
 
-const slidersPortfolio=document.querySelectorAll('.portfolio .container-sliders .swiper')
+const slidersPortfolio = document.querySelectorAll('.portfolio .container-sliders .main-slider');
+const slidersPagination = document.querySelectorAll('.portfolio .container-sliders  .pagination-slider .swiper');
 
-slidersPortfolio.forEach((slider)=>{
-  new Swiper(slider,{
-    loop: true,
-    speed: 400,
-    slidesPerView:1,
-    centeredSlides:true
-  })
-})
+const paginationSwipers = [];
+
+slidersPagination.forEach((slider) => {
+  const paginationSwiper=new Swiper(slider, {
+    centeredSlides: true,
+    slidesPerView: 'auto',
+    watchSlidesProgress: true,
+    slideToClickedSlide: true, 
+    allowTouchMove: false, 
+  });
+  paginationSwipers.push(paginationSwiper);
+});
+
+
+slidersPortfolio.forEach((slider,index) => {
+  new Swiper(slider, {
+    spaceBetween: 20,
+    slidesPerView: 1,
+    centerInsufficientSlides: true,
+    navigation: {
+      nextEl: slider.querySelector('.navigation-button.swiper-button-next'),
+      prevEl: slider.querySelector('.navigation-button.swiper-button-prev'),
+    },
+    effect: 'slide',
+    speed: 500,
+    effect:'fade',
+    grabCursor: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    thumbs: {
+      swiper: paginationSwipers[index],
+      slideThumbActiveClass: 'swiper-slide-active'
+    }
+  });
+});
+
+
+const listPortfolio = document.querySelectorAll(
+  ".portfolio .container-sliders .slider-item",
+);
+const portfolioTaps = document.querySelectorAll(
+  ".portfolio .portfolio-taps .tab-link",
+);
+portfolioTaps.forEach((tapBTN) => {
+  tapBTN.addEventListener("click", () => {
+    listPortfolio.forEach((e) => {
+      if (e.id.includes(tapBTN.getAttribute("data-tap"))) {
+        e.classList.add("active");
+      } else {
+        e.classList.remove("active");
+      }
+    });
+    portfolioTaps.forEach((e) => {
+      e.classList.remove("active");
+    });
+    tapBTN.classList.add("active");
+  });
+});

@@ -45,16 +45,21 @@
     <div class="pattern-background">
       <img src="static/images/background.png" alt="background" />
     </div>
+    <div class="pattern-background pattern-square">
+      <img src="static/images/pattern-square.png" alt="background" />
+    </div>
 
     <!-- Contact Us Button -->
 
     <!-- End Contact Us Button -->
-    <div class="container container-contactus">
-      <a href="./contactus" class="contactBTN">
-        <img src="static/images/call.svg" alt="Contact Us" />
-        Contact Us
-      </a>
-    </div>
+    <div class="contactus">  
+      <div class="container">
+        <a href="./contactus" class="contactBTN">
+          <img src="static/images/call.svg" alt="Contact Us" />
+          Contact Us
+        </a>
+      </div>
+    </div>  
     <!-- Banner Section -->
     <div class="banner">
       <div class="container">
@@ -220,10 +225,121 @@
             </a>
           </div>
           <div class="container-sliders">
-            <div class="slider-item" id="tap-1">
-              <div class="swiper">
+            <div class="slider-item active" id="tap-1">
+              <div class="swiper main-slider">
                 <div class="swiper-wrapper">
-                  <div class="swiper-slide">
+                  <div class="swiper-slide" data-history="2021">
+                    <div class="container-slider">
+                      
+                      <div class="image-slider">
+                        <img src="static/images/building.png" alt="Building">
+                      </div>
+                      <div class="content-slider">
+                        <div class="title">
+                            <h3>
+                              AL DURRA
+                            </h3>
+                          </div>
+                          <div class="container-details">
+                            <div class="icon">
+                              <img src="static/images/portfolioIcon.png" alt="Location">
+                            </div>
+                            <div class="details">
+                              <div class="location">
+                                Location: Kuwait - Al Fintas
+                              </div>
+                              <div class="opening-year">
+                                Opening Year: 2012
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide" data-history="2022">
+                    <div class="container-slider">
+                      
+                      <div class="image-slider">
+                        <img src="static/images/building.png" alt="Building">
+                      </div>
+                      <div class="content-slider">
+                        <div class="title">
+                            <h3>
+                              AL DURRA
+                            </h3>
+                        </div>
+                        <div class="container-details">
+                          <div class="icon">
+                            <img src="static/images/portfolioIcon.png" alt="Location">
+                          </div>
+                          <div class="details">
+                            <div class="location">
+                              Location: Kuwait - Al Fintas
+                            </div>
+                            <div class="opening-year">
+                              Opening Year: 2012
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide" data-history="2022">
+                      <div class="container-slider">
+                        
+                        <div class="image-slider">
+                          <img src="static/images/building.png" alt="Building">
+                        </div>
+                        <div class="content-slider">
+                          <div class="title">
+                              <h3>
+                                AL DURRA
+                              </h3>
+                          </div>
+                          <div class="container-details">
+                            <div class="icon">
+                              <img src="static/images/portfolioIcon.png" alt="Location">
+                            </div>
+                            <div class="details">
+                              <div class="location">
+                                Location: Kuwait - Al Fintas
+                              </div>
+                              <div class="opening-year">
+                                Opening Year: 2012
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+                <div class="footer-slider">
+                  <div class="container-navigation">
+                    <div class="navigation-button swiper-button-prev"></div>
+                    <div class="navigation-button swiper-button-next"></div>
+                  </div>
+                  <div class="pagination-slider">
+                   <div class="swiper">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <span>2021</span>
+                      </div>
+                      <div class="swiper-slide">
+                        <span>2022</span>
+                      </div>
+                      <div class="swiper-slide">
+                        <span>2023</span>
+                      </div>
+                    </div>
+                   </div> 
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slider-item" id="tap-2">
+              <div class="swiper main-slider">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide" data-history="2021">
                     <div class="container-slider">
                       
                       <div class="image-slider">
@@ -238,7 +354,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="swiper-slide">
+                  <div class="swiper-slide" data-history="2022">
                     <div class="container-slider">
                       
                       <div class="image-slider">
@@ -253,7 +369,49 @@
                       </div>
                     </div>
                   </div>
-                  <div class="swiper-slide">
+                  <div class="swiper-slide" data-history="2022">
+                      <div class="container-slider">
+                        
+                        <div class="image-slider">
+                          <img src="static/images/building.png" alt="Building">
+                        </div>
+                        <div class="content-slider">
+                          <div class="title">
+                              <h3>
+                                AL DURRA
+                              </h3>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+                <div class="footer-slider">
+                  <div class="container-navigation">
+                    <div class="navigation-button swiper-button-prev"></div>
+                    <div class="navigation-button swiper-button-next"></div>
+                  </div>
+                  <div class="pagination-slider">
+                   <div class="swiper">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <span>2021</span>
+                      </div>
+                      <div class="swiper-slide">
+                        <span>2022</span>
+                      </div>
+                      <div class="swiper-slide">
+                        <span>2023</span>
+                      </div>
+                    </div>
+                   </div> 
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slider-item" id="tap-3">
+              <div class="swiper main-slider">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide" data-history="2021">
                     <div class="container-slider">
                       
                       <div class="image-slider">
@@ -267,6 +425,57 @@
                         </div>
                       </div>
                     </div>
+                  </div>
+                  <div class="swiper-slide" data-history="2022">
+                    <div class="container-slider">
+                      
+                      <div class="image-slider">
+                        <img src="static/images/building.png" alt="Building">
+                      </div>
+                      <div class="content-slider">
+                        <div class="title">
+                            <h3>
+                              AL DURRA
+                            </h3>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide" data-history="2022">
+                      <div class="container-slider">
+                        
+                        <div class="image-slider">
+                          <img src="static/images/building.png" alt="Building">
+                        </div>
+                        <div class="content-slider">
+                          <div class="title">
+                              <h3>
+                                AL DURRA
+                              </h3>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+                <div class="footer-slider">
+                  <div class="container-navigation">
+                    <div class="navigation-button swiper-button-prev"></div>
+                    <div class="navigation-button swiper-button-next"></div>
+                  </div>
+                  <div class="pagination-slider">
+                   <div class="swiper">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <span>2021</span>
+                      </div>
+                      <div class="swiper-slide">
+                        <span>2022</span>
+                      </div>
+                      <div class="swiper-slide">
+                        <span>2023</span>
+                      </div>
+                    </div>
+                   </div> 
                   </div>
                 </div>
               </div>
@@ -277,6 +486,94 @@
     </div>
     <!-- End Portfolio -->
 
+    <!-- Footer -->
+     <footer>
+      <div class="container">
+       <div class="list-footer">
+        <div class="footer-section">
+          <div class="icon">
+            <img src="static/images/job.svg" alt="Job">
+          </div>
+          <div class="content">
+            <h3 class="title">
+              Join a company that values innovation and excellence. 
+            </h3>
+            <a href="#" class="custom-button">
+              Apply Now
+            </a>
+          </div>
+        </div>
+       </div>
+        <div class="list-footer">  
+          <div class="footer-section">
+            <div class="icon">
+              <img src="static/images/phone.svg" alt="Call">
+            </div>
+            <div class="content">
+              <h4 class="subtitle">
+                Phone :
+              </h4>
+              <h4 class="subtitle value">
+                <a href="">
+                  +965 22922600
+                </a>
+              </h4>
+            </div>
+          </div>
+          <div class="footer-section">
+            <div class="icon">
+              <img src="static/images/email.svg" alt="Email">
+            </div>
+            <div class="content">
+              <h4 class="subtitle">
+                Email :
+              </h4>
+              <h4 class="subtitle value">
+                <a href="mailto:info@shuwaikhgate.com">
+                  info@shuwaikhgate.com
+                </a>
+              </h4>
+            </div>
+          </div>
+        </div>
+        
+        <div class="list-footer">  
+          <div class="footer-section">
+            <div class="icon">
+              <img src="static/images/location.svg" alt="Location">
+            </div>
+            <div class="content">
+              <h4 class="subtitle">
+                Address :
+              </h4>
+              <h4 class="subtitle value">
+                <a href="">
+                  Fahad AL-SALEM Street, AL-Salhiya Commercial Complex
+                </a>
+              </h4>
+            </div>
+          </div>
+        </div>
+        <div class="list-footer">
+          <div class="copyright">
+            © 2025 Shuwaikh Gate holding KSC. All Rights Reserved.
+          </div>
+        </div>
+        <div class="list-footer">
+          <div class="links">
+            <a href="#">
+              <img src="static/images/facebook.svg" alt="">
+            </a>
+            <a href="#">
+              <img src="static/images/instegram.svg" alt="">
+            </a>
+            <a href="#">
+              <img src="static/images/linkedin.svg" alt="">
+            </a>
+          </div>
+        </div>
+      </div>
+     </footer>
     <script src="static/js/swiper-bundle.min.js"></script>
     <script src="static/js/index.js"></script>
   </body>
