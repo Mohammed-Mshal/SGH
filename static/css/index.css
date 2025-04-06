@@ -920,6 +920,12 @@ nav.scrolled .container .logo a img {
   top: -80px;
   z-index: -1;
 }
+.partner .background-image img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
 .partner .container {
   display: flex;
   align-items: center;
@@ -1063,7 +1069,7 @@ footer .container .list-footer .footer-section .content {
 footer .container .list-footer .footer-section .content .title {
   margin: 0;
   font-weight: 500;
-  font-size: clamp(18pt, 2vw, 24pt);
+  font-size: clamp(16pt, 2vw, 24pt);
   color: #FFF;
   word-spacing: 3px;
 }

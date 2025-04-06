@@ -20,7 +20,7 @@ $button-font: 12pt;
 $font-xl: clamp(24pt, 5.4vw, 48pt);
 $font-lg: clamp(20pt, 4vw, 30pt);
 $font-semi-lg: clamp(12pt, 2vw, 16pt);
-$font-footer-title: clamp(18pt, 2vw, 24pt);
+$font-footer-title: clamp(16pt, 2vw, 24pt);
 $font-md: 14pt;
 $font-sm: 12pt;
 * {
@@ -977,6 +977,11 @@ nav {
     right: 0;
     top: -80px;
     z-index: -1;
+    img{
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
   }
   .container {
     display: flex;
