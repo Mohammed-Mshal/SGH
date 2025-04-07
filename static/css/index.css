@@ -80,7 +80,7 @@
 }
 
 * {
-  font-size: clamp(12pt, 2vw, 14pt);
+  font-size: clamp(12pt, 2vw, 16pt);
 }
 
 nav {
@@ -206,7 +206,7 @@ nav .container .options .links .list-links li {
 nav .container .options .links .list-links li a {
   padding-inline: 12px;
   text-decoration: none;
-  font-size: clamp(12pt, 2vw, 14pt);
+  font-size: clamp(12pt, 2vw, 16pt);
   padding-block: 4px;
   color: #fff;
   font-weight: bold;
@@ -392,7 +392,7 @@ nav.scrolled .container .logo a img {
 .banner .container .hero-container .description {
   color: #fff;
   max-width: 30%;
-  font-size: clamp(12pt, 2vw, 14pt);
+  font-size: clamp(12pt, 2vw, 16pt);
   font-weight: 500;
 }
 @media (max-width: 992px) {
@@ -455,7 +455,8 @@ nav.scrolled .container .logo a img {
   margin-bottom: 8px;
 }
 .about .container .left-side .title {
-  font-size: clamp(20pt, 4vw, 30pt);
+  font-size: clamp(24px, 3vw, 48px);
+  font-weight: 900;
   color: #fff;
   margin: 0;
 }
@@ -468,7 +469,7 @@ nav.scrolled .container .logo a img {
 .about .container .left-side .list-description .description {
   height: 100%;
   color: #fff;
-  font-size: clamp(12pt, 2vw, 14pt);
+  font-size: clamp(12pt, 2vw, 16pt);
   max-height: 0px;
   overflow: hidden;
   opacity: 0;
@@ -625,7 +626,8 @@ nav.scrolled .container .logo a img {
   margin-bottom: 8px;
 }
 .portfolio .container .left-side .title {
-  font-size: clamp(20pt, 4vw, 30pt);
+  font-size: clamp(24px, 3vw, 48px);
+  font-weight: 900;
   color: #fff;
   font-weight: bold;
   margin: 0;
@@ -644,11 +646,10 @@ nav.scrolled .container .logo a img {
 .portfolio .container .left-side .portfolio-taps .tab-link {
   cursor: pointer;
   margin-block: 0;
-  font-size: 11pt;
   transition: 0.3s all ease-in-out;
 }
 .portfolio .container .left-side .portfolio-taps .tab-link.active, .portfolio .container .left-side .portfolio-taps .tab-link:hover {
-  font-size: 14pt;
+  font-size: 16pt;
   color: #FFF;
 }
 .portfolio .container .right-side {
@@ -857,7 +858,7 @@ nav.scrolled .container .logo a img {
 .portfolio .container .right-side .container-sliders .slider-item {
   height: 100%;
   color: #fff;
-  font-size: clamp(12pt, 2vw, 14pt);
+  font-size: clamp(12pt, 2vw, 16pt);
   max-height: 0px;
   opacity: 0;
   transition: 0.5s opacity ease-in-out, 0.5s 0.5s max-height ease-in-out;
@@ -928,7 +929,7 @@ nav.scrolled .container .logo a img {
   margin-bottom: 8px;
 }
 .our-subsidiaries .container .left-side .title {
-  font-size: clamp(20pt, 4vw, 30pt);
+  font-size: clamp(24px, 3vw, 48px);
   color: #fff;
   margin: 0;
   font-weight: bolder;
@@ -942,6 +943,29 @@ nav.scrolled .container .logo a img {
   color: #FFF;
   font-weight: 300;
   margin-top: 30px;
+}
+.our-subsidiaries .container .right-side {
+  flex: 1 1 0;
+}
+.our-subsidiaries .container .right-side .background-image {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.our-subsidiaries .container .right-side .background-image img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.our-subsidiaries .container .right-side .background-image .overlay-image {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+  z-index: -1;
 }
 
 .news .container {
@@ -963,7 +987,8 @@ nav.scrolled .container .logo a img {
   margin-bottom: 8px;
 }
 .news .container .left-side .title {
-  font-size: clamp(20pt, 4vw, 30pt);
+  font-size: clamp(24px, 3vw, 48px);
+  font-weight: bolder;
   color: #fff;
   margin: 0;
   font-weight: bolder;
@@ -1052,28 +1077,34 @@ nav.scrolled .container .logo a img {
 
 .partner {
   overflow: hidden;
-  padding-block: 120px;
-  position: relative;
-}
-.partner .background-image {
-  position: absolute;
-  right: 0;
-  top: -80px;
-  border-radius: 50%;
-  overflow: hidden;
-  z-index: -1;
-}
-.partner .background-image video,
-.partner .background-image img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  height: 100%;
-  width: 100%;
+  margin-block: 40px;
 }
 .partner .container {
+  padding-block: 200px;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 1;
+  mix-blend-mode: lighten;
+}
+.partner .container .background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  z-index: -2;
+}
+.partner .container .background video,
+.partner .container .background img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  height: 100%;
+  width: 100%;
 }
 .partner .container .left-side {
   display: flex;
@@ -1106,6 +1137,7 @@ nav.scrolled .container .logo a img {
   flex: 1;
   animation: animate-partner-image 1.5s infinite alternate;
 }
+.partner .container .right-side .image video,
 .partner .container .right-side .image img {
   width: 100%;
 }
@@ -1121,14 +1153,6 @@ nav.scrolled .container .logo a img {
   }
 }
 
-@keyframes animate-partner-image {
-  from {
-    translate: 0 -80px;
-  }
-  to {
-    translate: 0 0;
-  }
-}
 footer .container {
   display: flex;
   justify-content: space-between;
@@ -1294,4 +1318,4 @@ footer .container .list-footer:has(.links) .links a:hover img {
   footer .container .list-footer:has(.links) .links {
     justify-content: center;
   }
-}/*# sourceMappingURL=index.css.map */
+}

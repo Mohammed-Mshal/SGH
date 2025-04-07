@@ -217,10 +217,6 @@ const sliderDescriptionSwiper = new Swiper(slidersNewsDescriptionELE, {
   watchSlidesProgress: true,
   slideToClickedSlide: true,
   effect: "slide",
-  navigation: {
-    nextEl: '.navigation-news .swiper-button-next',
-    prevEl: '.navigation-news .swiper-button-prev',
-  },
 });
 const swiperNews = new Swiper(slidersNewsELE, {
   centeredSlides: true,
@@ -229,10 +225,6 @@ const swiperNews = new Swiper(slidersNewsELE, {
   effect: "slide",
   speed: 500,
   grabCursor: true,
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: false,
-  },
   breakpoints: {
     992: {
       slidesPerView: 3,
@@ -249,6 +241,47 @@ const swiperNews = new Swiper(slidersNewsELE, {
       centeredSlides: false,
       autoWidth: false,
     },
+  },
+  navigation: {
+    nextEl: '.navigation-news .swiper-button-next',
+    prevEl: '.navigation-news .swiper-button-prev',
+  },
+  on: {
+    init: function() {
+      // Check if initial active slide has video and play it
+      const activeSlide = this.slides[this.activeIndex];
+      const activeVideo = activeSlide.querySelector('video');
+      if (activeVideo) {
+        activeVideo.play();
+      }
+    },
+    slideChange: function () {
+      // Get all slides
+      const slides = this.slides;
+      
+      // Loop through all slides
+      slides.forEach(slide => {
+        // Find video elements in each slide
+        const videos = slide.querySelectorAll('video');
+        
+        // Reset and pause all videos
+        videos.forEach(video => {
+          video.pause();
+          video.currentTime = 0;
+        });
+      });
+  
+      // Get current active slide
+      const activeSlide = slides[this.activeIndex];
+      
+      // Find video in active slide if exists
+      const activeVideo = activeSlide.querySelector('video');
+      
+      // Play video in active slide if exists
+      if (activeVideo) {
+        activeVideo.play();
+      }
+    }
   },
   thumbs: {
     swiper: sliderDescriptionSwiper,

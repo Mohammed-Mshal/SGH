@@ -158,22 +158,22 @@
           <img src="static/images/logo.svg" alt="Logo" />
         </div>
         <div class="item">
-          <h2 class="value reveal-child" data-item-show="5">2053</h2>
-          <h2 class="title reveal-child" data-item-show="5">
+          <h2 class="value reveal-child" data-item-show="3">2053</h2>
+          <h2 class="title reveal-child" data-item-show="3">
             LEASABLE UNITS
           </h2>
         </div>
         <div class="item">
-          <h2 class="value reveal-child" data-item-show="5">2</h2>
-          <h2 class="title reveal-child" data-item-show="5">COUNTRIES</h2>
+          <h2 class="value reveal-child" data-item-show="3">2</h2>
+          <h2 class="title reveal-child" data-item-show="3">COUNTRIES</h2>
         </div>
         <div class="item">
-          <h2 class="value reveal-child" data-item-show="5">1800</h2>
-          <h2 class="title reveal-child" data-item-show="5">TEAM MEMBERS</h2>
+          <h2 class="value reveal-child" data-item-show="3">1800</h2>
+          <h2 class="title reveal-child" data-item-show="3">TEAM MEMBERS</h2>
         </div>
         <div class="item">
-          <h2 class="value reveal-child" data-item-show="5">5</h2>
-          <h2 class="title reveal-child" data-item-show="5">MALLS</h2>
+          <h2 class="value reveal-child" data-item-show="3">5</h2>
+          <h2 class="title reveal-child" data-item-show="3">MALLS</h2>
         </div>
       </div>
     </div>
@@ -208,13 +208,13 @@
           <h3 class="tab-link" data-tap="11">Development Services</h3>
         </div>
       </div>
-      <div class="right-side">
-        <div class="header-slider">
+      <div class="right-side reveal" >
+        <div class="header-slider reveal-child" data-item-show="1">
           <a href="#" class="custom-button explore reveal-button" data-item-show="1">
             EXPLORE MORE
           </a>
         </div>
-        <div class="container-sliders">
+        <div class="container-sliders reveal-child" data-item-show="2">
           <div class="slider-item active" id="tap-1">
             <div class="swiper main-slider">
               <div class="swiper-wrapper">
@@ -494,8 +494,11 @@
           EXPLORE MORE
         </a>
       </div>
-      <div class="right-side">
-        
+      <div class="right-side reveal-child" data-item-show="2">
+        <div class="background-image">
+          <img src="static/videos/Subsidiaries.gif" class="main-image" alt="our-subsidiaries">
+          <img src="static/videos/Subsidiaries.gif" class="overlay-image" alt="our-subsidiaries">
+        </div>
       </div>
     </div>
   </div>
@@ -518,12 +521,12 @@
           EXPLORE MORE
         </a>
       </div>
-      <div class="right-side">
+      <div class="right-side reveal-child" data-item-show="2">
         <div class="swiper swiper-news">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <div class="container-slide">
-                <img src="static/images/News1.png" alt="News">
+                <video src="static/videos/news_data.mp4" loop></video>
               </div>
             </div>
             <div class="swiper-slide">
@@ -585,10 +588,13 @@
   <!-- End Latest News -->
   <!-- Partner -->
   <div class="partner reveal parent-delay">
-    <div class="background-image reveal-child" data-item-show="1">
-      <img src="static/images/partner1.png" alt="">
-    </div>
     <div class="container">
+      <div class="background reveal-child" data-item-show="2">
+        <video loop autoplay muted>
+          <source src="static/videos/Partner_full.mp4" media="(min-width: 768px)">
+          <source src="static/videos/Partner_full_mobile.mp4" media="(max-width: 767px)">
+        </video>
+      </div>
       <div class="left-side reveal-child" data-item-show="1">
         <div class="comma reveal-child" data-item-show="1">
           <img src="static/images/comma.svg" alt="comma" />
@@ -607,7 +613,7 @@
       </div>
       <div class="right-side reveal-child" data-item-show="1">
         <div class="image">
-          <img src="static/images/hands.png" alt="HANDS">
+          
         </div>
       </div>
     </div>

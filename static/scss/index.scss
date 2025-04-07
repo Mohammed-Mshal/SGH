@@ -15,7 +15,7 @@ $text-color: #212121;
 $primary-text-color: #59bdc1;
 $primary-text-color-opacity: rgba(89, 190, 193, 0.15);
 $light-color: #fff;
-$normal-font: clamp(12pt, 2vw, 14pt);
+$normal-font: clamp(12pt, 2vw, 16pt);
 $button-font: 12pt;
 $font-xl: clamp(24pt, 5.4vw, 48pt);
 $font-lg: clamp(20pt, 4vw, 30pt);
@@ -23,6 +23,7 @@ $font-semi-lg: clamp(12pt, 2vw, 16pt);
 $font-footer-title: clamp(16pt, 2vw, 24pt);
 $font-md: 14pt;
 $font-sm: 12pt;
+$font-title-section:clamp(24px,3vw,48px);
 * {
   box-sizing: border-box;
   font-family: "Myriad Pro Regular", sans-serif;
@@ -474,7 +475,8 @@ nav {
         margin-bottom: 8px;
       }
       .title {
-        font-size: $font-lg;
+        font-size: $font-title-section;
+        font-weight: 900;
         color: #fff;
         margin: 0;
         &.primary-text {
@@ -659,7 +661,8 @@ nav {
         margin-bottom: 8px;
       }
       .title {
-        font-size: $font-lg;
+        font-size: $font-title-section;
+        font-weight: 900;
         color: #fff;
         font-weight: bold;
         margin: 0;
@@ -677,11 +680,10 @@ nav {
         .tab-link {
           cursor: pointer;
           margin-block: 0;
-          font-size: 11pt;
           transition: 0.3s all ease-in-out;
           &.active,
           &:hover {
-            font-size: $font-md;
+            font-size: 16pt;
             color: #FFF;
           }
         }
@@ -986,7 +988,7 @@ nav {
         margin-bottom: 8px;
       }
       .title {
-        font-size: $font-lg;
+        font-size: $font-title-section;
         color: #fff;
         margin: 0;
         font-weight: bolder;
@@ -1002,6 +1004,28 @@ nav {
         margin-top: 30px;
       }
       
+    }
+    .right-side{
+      flex: 1 1 0;
+      .background-image{
+        width: 100%;
+        height: 100%;
+        position: relative;
+        img{
+          height: 100%;
+          width: 100%;
+          object-fit: contain;
+        }
+        .overlay-image{
+          position: absolute;
+          top: 40px;
+          left: 40px;
+          width: 100%;
+          height: 100%;
+          opacity: .1;
+          z-index: -1;
+        }
+      }
     }
   }
 }
@@ -1024,7 +1048,8 @@ nav {
         margin-bottom: 8px;
       }
       .title {
-        font-size: $font-lg;
+        font-size: $font-title-section;
+        font-weight: bolder;
         color: #fff;
         margin: 0;
         font-weight: bolder;
@@ -1117,26 +1142,32 @@ nav {
 }
 .partner{
   overflow: hidden;
-  padding-block: 120px;
-  position: relative;
-  .background-image{
-    position: absolute;
-    right: 0;
-    top: -80px;
-     border-radius: 50%;
-     overflow: hidden;
-    z-index: -1;
-    video,
-    img{
-      object-fit: cover;
-      height: 100%;
-      width: 100%;
-    }
-  }
+  margin-block: 40px;
   .container {
+    padding-block: 200px;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 1;
+    mix-blend-mode: lighten;
+    .background{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top:0;
+      overflow: hidden;
+      z-index: -2;
+      video,
+      img{
+        object-fit: cover;
+        object-position: center;
+        height: 100%;
+        width: 100%;
+      }
+    }
+    
     .left-side {
       display: flex;
       flex-direction: column;
@@ -1169,8 +1200,9 @@ nav {
       .image{
         flex: 1;
         animation: animate-partner-image 1.5s infinite alternate;
+        video,
         img{
-          width: 100%;
+        width: 100%;
         }
       }
     }
@@ -1185,15 +1217,7 @@ nav {
     }
   }
 }
-@keyframes animate-partner-image {
-  from{
-    translate: 0 -80px;
-  }
-  to{
-    translate: 0 0;
-  }
-  
-}
+
 footer{
   .container{
     display: flex;
