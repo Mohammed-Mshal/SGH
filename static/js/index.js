@@ -64,7 +64,7 @@ window.addEventListener("scroll", () => {
     const bannerRect = banner.getBoundingClientRect();
     const scrollPercentage = Math.max(
       0,
-      Math.min(1, -bannerRect.top / bannerRect.height),
+      Math.min(1, -bannerRect.top / bannerRect.height)
     );
 
     // Scale from 1 to 0.8 as user scrolls
@@ -80,10 +80,10 @@ window.addEventListener("scroll", () => {
 });
 
 const listDescription = document.querySelectorAll(
-  ".about .list-description .description",
+  ".about .list-description .description"
 );
 const descriptionTaps = document.querySelectorAll(
-  ".about .description-taps .tab-link",
+  ".about .description-taps .tab-link"
 );
 descriptionTaps.forEach((tapBTN) => {
   tapBTN.addEventListener("click", () => {
@@ -110,10 +110,10 @@ const about = document.querySelector(".about");
 window.addEventListener("scroll", () => {
   if (about && leftSide && rightSide) {
     const aboutRect = about.getBoundingClientRect();
-    const halfwayPoint = window.innerHeight /1;
+    const halfwayPoint = window.innerHeight / 1;
     const scrollPercentage = Math.max(
       0,
-      Math.min(1, (halfwayPoint - aboutRect.bottom) / halfwayPoint),
+      Math.min(1, (halfwayPoint - aboutRect.bottom) / halfwayPoint)
     );
     // Scale from 1 to 0.8 as user scrolls
     const scale = 1 + scrollPercentage * 0.2;
@@ -133,35 +133,38 @@ window.addEventListener("scroll", () => {
   }
 });
 
-const slidersPortfolio = document.querySelectorAll('.portfolio .container-sliders .main-slider');
-const slidersPagination = document.querySelectorAll('.portfolio .container-sliders  .pagination-slider .swiper');
+const slidersPortfolio = document.querySelectorAll(
+  ".portfolio .container-sliders .main-slider"
+);
+const slidersPagination = document.querySelectorAll(
+  ".portfolio .container-sliders  .pagination-slider .swiper"
+);
 
 const paginationSwipers = [];
 
 slidersPagination.forEach((slider) => {
-  const paginationSwiper=new Swiper(slider, {
+  const paginationSwiper = new Swiper(slider, {
     centeredSlides: true,
-    slidesPerView: 'auto',
+    slidesPerView: "auto",
     watchSlidesProgress: true,
-    slideToClickedSlide: true, 
-    allowTouchMove: false, 
+    slideToClickedSlide: true,
+    allowTouchMove: false,
   });
   paginationSwipers.push(paginationSwiper);
 });
 
-
-slidersPortfolio.forEach((slider,index) => {
+slidersPortfolio.forEach((slider, index) => {
   new Swiper(slider, {
     spaceBetween: 20,
     slidesPerView: 1,
     centerInsufficientSlides: true,
     navigation: {
-      nextEl: slider.querySelector('.navigation-button.swiper-button-next'),
-      prevEl: slider.querySelector('.navigation-button.swiper-button-prev'),
+      nextEl: slider.querySelector(".navigation-button.swiper-button-next"),
+      prevEl: slider.querySelector(".navigation-button.swiper-button-prev"),
     },
-    effect: 'slide',
+    effect: "slide",
     speed: 500,
-    effect:'fade',
+    effect: "fade",
     grabCursor: true,
     autoplay: {
       delay: 3000,
@@ -169,17 +172,16 @@ slidersPortfolio.forEach((slider,index) => {
     },
     thumbs: {
       swiper: paginationSwipers[index],
-      slideThumbActiveClass: 'swiper-slide-active'
-    }
+      slideThumbActiveClass: "swiper-slide-active",
+    },
   });
 });
 
-
 const listPortfolio = document.querySelectorAll(
-  ".portfolio .container-sliders .slider-item",
+  ".portfolio .container-sliders .slider-item"
 );
 const portfolioTaps = document.querySelectorAll(
-  ".portfolio .portfolio-taps .tab-link",
+  ".portfolio .portfolio-taps .tab-link"
 );
 portfolioTaps.forEach((tapBTN) => {
   tapBTN.addEventListener("click", () => {
@@ -197,10 +199,59 @@ portfolioTaps.forEach((tapBTN) => {
   });
 });
 
-
 // To Top Button
-const topBTN=document.querySelector('.toTopBTN')
-topBTN&&
-topBTN.addEventListener('click',()=>{
-  window.scrollTo({top:0,behavior:'smooth'})
-})
+const topBTN = document.querySelector(".toTopBTN");
+topBTN &&
+  topBTN.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+// News Swiper
+const slidersNewsELE = document.querySelector(".news .swiper.swiper-news");
+const slidersNewsDescriptionELE = document.querySelector(
+  ".news .swiper.swiper-description-news"
+);
+const sliderDescriptionSwiper = new Swiper(slidersNewsDescriptionELE, {
+  centeredSlides: true,
+  slidesPerView: 'auto',
+  watchSlidesProgress: true,
+  slideToClickedSlide: true,
+  effect: "slide",
+  navigation: {
+    nextEl: '.navigation-news .swiper-button-next',
+    prevEl: '.navigation-news .swiper-button-prev',
+  },
+});
+const swiperNews = new Swiper(slidersNewsELE, {
+  centeredSlides: true,
+  centerInsufficientSlides: true,
+  autoWidth: true,
+  effect: "slide",
+  speed: 500,
+  grabCursor: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+  breakpoints: {
+    992: {
+      slidesPerView: 3,
+      centeredSlides: true,
+      autoWidth: true,
+    },
+    668: {
+      slidesPerView: 2,
+      centeredSlides: true,
+      autoWidth: true,
+    },
+    0: {
+      slidesPerView: 1,
+      centeredSlides: false,
+      autoWidth: false,
+    },
+  },
+  thumbs: {
+    swiper: sliderDescriptionSwiper,
+    slideThumbActiveClass: "swiper-slide-active",
+  },
+});

@@ -909,6 +909,147 @@ nav.scrolled .container .logo a img {
   }
 }
 
+.our-subsidiaries .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+.our-subsidiaries .container .left-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 1 100%;
+  max-width: 450px;
+  min-width: 250px;
+}
+.our-subsidiaries .container .left-side .comma {
+  width: 26px;
+  margin-bottom: 8px;
+}
+.our-subsidiaries .container .left-side .title {
+  font-size: clamp(20pt, 4vw, 30pt);
+  color: #fff;
+  margin: 0;
+  font-weight: bolder;
+  letter-spacing: 2px;
+}
+.our-subsidiaries .container .left-side .title.primary-text {
+  color: #59bdc1;
+}
+.our-subsidiaries .container .left-side .description {
+  font-size: 18px;
+  color: #FFF;
+  font-weight: 300;
+  margin-top: 30px;
+}
+
+.news .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+.news .container .left-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 1 100%;
+  max-width: 300px;
+  min-width: 250px;
+}
+.news .container .left-side .comma {
+  width: 26px;
+  margin-bottom: 8px;
+}
+.news .container .left-side .title {
+  font-size: clamp(20pt, 4vw, 30pt);
+  color: #fff;
+  margin: 0;
+  font-weight: bolder;
+  letter-spacing: 2px;
+}
+.news .container .left-side .title.primary-text {
+  color: #59bdc1;
+}
+.news .container .left-side .description {
+  font-size: 18px;
+  color: #FFF;
+  font-weight: 300;
+  max-width: 380px;
+  margin-top: 30px;
+}
+.news .container .right-side {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+.news .container .right-side .swiper-news {
+  height: 500px;
+  width: 100%;
+}
+.news .container .right-side .swiper-news .swiper-slide {
+  transition: 0.3s all ease-in-out;
+}
+.news .container .right-side .swiper-news .swiper-slide .container-slide {
+  width: 100%;
+  height: 100%;
+}
+.news .container .right-side .swiper-news .swiper-slide .container-slide img,
+.news .container .right-side .swiper-news .swiper-slide .container-slide video {
+  width: 100%;
+  height: 100%;
+}
+.news .container .right-side .swiper-news .swiper-slide:not(.swiper-slide-active) {
+  filter: blur(4px);
+  scale: 0.9;
+}
+.news .container .right-side .swiper-description-news {
+  width: 100%;
+}
+.news .container .right-side .swiper-description-news .swiper-slide {
+  width: 100%;
+  padding-inline: 40px;
+}
+.news .container .right-side .swiper-description-news .swiper-slide .container-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  max-width: 700px;
+  margin-inline: auto;
+}
+.news .container .right-side .swiper-description-news .swiper-slide .container-slide .date-news {
+  color: #59bdc1;
+  font-weight: bold;
+  font-size: 14pt;
+}
+.news .container .right-side .swiper-description-news .swiper-slide .container-slide .description {
+  color: #FFF;
+}
+.news .container .right-side .swiper-description-news .navigation-news .swiper-button-disabled {
+  opacity: 0;
+}
+.news .container .right-side .swiper-description-news .swiper-button-next, .news .container .right-side .swiper-description-news .swiper-button-prev {
+  transition: 0.3s all ease-in-out;
+}
+.news .container .right-side .swiper-description-news .swiper-button-next:after, .news .container .right-side .swiper-description-news .swiper-button-prev:after {
+  font-size: 32px;
+}
+.news .container .right-side .swiper-description-news .navigation-news .navigation-button {
+  color: #FFF;
+}
+@media (max-width: 1100px) {
+  .news .container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .news .container .left-side {
+    max-width: 100%;
+  }
+}
+
 .partner {
   overflow: hidden;
   padding-block: 120px;
@@ -1153,4 +1294,4 @@ footer .container .list-footer:has(.links) .links a:hover img {
   footer .container .list-footer:has(.links) .links {
     justify-content: center;
   }
-}
+}/*# sourceMappingURL=index.css.map */
