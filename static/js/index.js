@@ -213,10 +213,11 @@ const slidersNewsDescriptionELE = document.querySelector(
 );
 const sliderDescriptionSwiper = new Swiper(slidersNewsDescriptionELE, {
   centeredSlides: true,
-  slidesPerView: 'auto',
+  slidesPerView: "auto",
   watchSlidesProgress: true,
   slideToClickedSlide: true,
   effect: "slide",
+  allowTouchMove: false,
 });
 const swiperNews = new Swiper(slidersNewsELE, {
   centeredSlides: true,
@@ -243,14 +244,14 @@ const swiperNews = new Swiper(slidersNewsELE, {
     },
   },
   navigation: {
-    nextEl: '.navigation-news .swiper-button-next',
-    prevEl: '.navigation-news .swiper-button-prev',
+    nextEl: ".navigation-news .swiper-button-next",
+    prevEl: ".navigation-news .swiper-button-prev",
   },
   on: {
-    init: function() {
+    init: function () {
       // Check if initial active slide has video and play it
       const activeSlide = this.slides[this.activeIndex];
-      const activeVideo = activeSlide.querySelector('video');
+      const activeVideo = activeSlide.querySelector("video");
       if (activeVideo) {
         activeVideo.play();
       }
@@ -258,33 +259,87 @@ const swiperNews = new Swiper(slidersNewsELE, {
     slideChange: function () {
       // Get all slides
       const slides = this.slides;
-      
+
       // Loop through all slides
-      slides.forEach(slide => {
+      slides.forEach((slide) => {
         // Find video elements in each slide
-        const videos = slide.querySelectorAll('video');
-        
+        const videos = slide.querySelectorAll("video");
+
         // Reset and pause all videos
-        videos.forEach(video => {
+        videos.forEach((video) => {
           video.pause();
           video.currentTime = 0;
         });
       });
-  
+
       // Get current active slide
       const activeSlide = slides[this.activeIndex];
-      
+
       // Find video in active slide if exists
-      const activeVideo = activeSlide.querySelector('video');
-      
+      const activeVideo = activeSlide.querySelector("video");
+
       // Play video in active slide if exists
       if (activeVideo) {
         activeVideo.play();
       }
-    }
+    },
   },
   thumbs: {
     swiper: sliderDescriptionSwiper,
     slideThumbActiveClass: "swiper-slide-active",
   },
 });
+
+const portfolio = document.querySelector(".portfolio");
+const ourSubsidiaries = document.querySelector(".our-subsidiaries");
+const news = document.querySelector(".news");
+
+
+window.addEventListener("scroll", () => {
+  if (portfolio) {
+    const portfolioRect = portfolio.getBoundingClientRect();
+    const halfwayPoint = window.innerHeight / 1;
+    const scrollPercentage = Math.max(
+      0,
+      Math.min(1, (halfwayPoint - portfolioRect.bottom) / halfwayPoint)
+    );
+
+    // Scale element based on scroll position
+    const scale = 1 + scrollPercentage * 0.6;
+
+    if (portfolioRect.bottom > 0) {
+      portfolio.style.transform = `scale(${scale})`;
+    }
+  }
+  if (ourSubsidiaries) {
+    const ourSubsidiariesRect = ourSubsidiaries.getBoundingClientRect();
+    const halfwayPoint = window.innerHeight / 1;
+    const scrollPercentage = Math.max(
+      0,
+      Math.min(1, (halfwayPoint - ourSubsidiariesRect.bottom) / halfwayPoint)
+    );
+
+    // Scale element based on scroll position
+    const scale = 1 + scrollPercentage * 0.6;
+
+    if (ourSubsidiariesRect.bottom > 0) {
+      ourSubsidiaries.style.transform = `scale(${scale})`;
+    }
+  }
+  if (news) {
+    const newsRect = news.getBoundingClientRect();
+    const halfwayPoint = window.innerHeight / 1;
+    const scrollPercentage = Math.max(
+      0,
+      Math.min(1, (halfwayPoint - newsRect.bottom) / halfwayPoint)
+    );
+
+    // Scale element based on scroll position
+    const scale = 1 + scrollPercentage * 0.6;
+
+    if (newsRect.bottom > 0) {
+      news.style.transform = `scale(${scale})`;
+    }
+  }
+});
+1

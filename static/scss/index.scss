@@ -28,6 +28,9 @@ $font-title-section:clamp(24px,3vw,48px);
   box-sizing: border-box;
   font-family: "Myriad Pro Regular", sans-serif;
 }
+html,body{
+  overflow-x: hidden;
+}
 .reveal {
   .reveal-button {
     opacity: 0;
@@ -998,7 +1001,7 @@ nav {
         }
       }
       .description{
-        font-size: 18px;
+        font-size: clamp(16px,2.4vw,22px);
         color: #FFF;
         font-weight: 300;
         margin-top: 30px;
@@ -1007,10 +1010,12 @@ nav {
     }
     .right-side{
       flex: 1 1 0;
+  
       .background-image{
         width: 100%;
         height: 100%;
         position: relative;
+        overflow: hidden;
         img{
           height: 100%;
           width: 100%;
@@ -1023,8 +1028,20 @@ nav {
           width: 100%;
           height: 100%;
           opacity: .1;
+          object-fit: contain;
           z-index: -1;
         }
+      }
+    }
+    @media (max-width:992px) {
+      flex-direction: column;
+      align-items: stretch;
+      .left-side{
+        max-width: 100%;
+      }
+      .right-side{
+        width: 100%;
+        flex: 1 1 100%;
       }
     }
   }
@@ -1059,7 +1076,7 @@ nav {
         }
       }
       .description{
-        font-size: 18px;
+        font-size: clamp(16px,2.4vw,22px);
         color: #FFF;
         font-weight: 300;
         max-width: 380px;
@@ -1143,6 +1160,7 @@ nav {
 .partner{
   overflow: hidden;
   margin-block: 40px;
+
   .container {
     padding-block: 200px;
     position: relative;
@@ -1158,7 +1176,7 @@ nav {
       left: 0;
       top:0;
       overflow: hidden;
-      z-index: -2;
+      z-index: -4;
       video,
       img{
         object-fit: cover;
@@ -1188,7 +1206,7 @@ nav {
         }
       }
       .description{
-        font-size: 18px;
+        font-size: clamp(16px,2.4vw,22px);
         color: #FFF;
         font-weight: 300;
         max-width: 380px;
@@ -1219,6 +1237,7 @@ nav {
 }
 
 footer{
+
   .container{
     display: flex;
     justify-content: space-between;
