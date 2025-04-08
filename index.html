@@ -526,7 +526,7 @@
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <div class="container-slide">
-                <video src="static/videos/news_data.mp4" loop></video>
+                <video src="static/videos/news_data.mp4" loop controls></video>
               </div>
             </div>
             <div class="swiper-slide">
@@ -589,12 +589,6 @@
   <!-- Partner -->
   <div class="partner reveal parent-delay">
     <div class="container">
-      <div class="background reveal-child" data-item-show="2">
-        <video loop autoplay muted>
-          <source src="static/videos/Partner_full.mp4" media="(min-width: 992px)">
-          <source src="static/videos/Partner_full_mobile.mp4" media="(max-width: 991px)">
-        </video>
-      </div>
       <div class="left-side reveal-child" data-item-show="1">
         <div class="comma reveal-child" data-item-show="1">
           <img src="static/images/comma.svg" alt="comma" />
@@ -613,7 +607,10 @@
       </div>
       <div class="right-side reveal-child" data-item-show="1">
         <div class="image">
-          
+          <video loop autoplay muted>
+            <source src="static/videos/Partner_full.mp4" media="(min-width: 992px)">
+            <source src="static/videos/Partner_full_mobile.mp4" media="(max-width: 991px)">
+          </video>
         </div>
       </div>
     </div>

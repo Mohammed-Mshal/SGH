@@ -1049,6 +1049,11 @@ nav.scrolled .container .logo a img {
 .news .container .right-side .swiper-news .swiper-slide .container-slide video {
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.news .container .right-side .swiper-news .swiper-slide .container-slide video::-webkit-media-controls-timeline, .news .container .right-side .swiper-news .swiper-slide .container-slide video::-webkit-media-controls-current-time-display, .news .container .right-side .swiper-news .swiper-slide .container-slide video::-webkit-media-controls-time-remaining-display, .news .container .right-side .swiper-news .swiper-slide .container-slide video::-webkit-media-controls-mute-button, .news .container .right-side .swiper-news .swiper-slide .container-slide video::-webkit-media-controls-volume-slider, .news .container .right-side .swiper-news .swiper-slide .container-slide video::-webkit-media-controls-fullscreen-button {
+  display: none;
 }
 .news .container .right-side .swiper-news .swiper-slide:not(.swiper-slide-active) {
   filter: blur(4px);
@@ -1105,7 +1110,6 @@ nav.scrolled .container .logo a img {
   margin-block: 40px;
 }
 .partner .container {
-  padding-block: 200px;
   position: relative;
   display: flex;
   align-items: center;
@@ -1142,7 +1146,8 @@ nav.scrolled .container .logo a img {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  flex: 1 1 auto;
+  flex: 1 1 100%;
+  max-width: 300px;
 }
 .partner .container .left-side .comma {
   width: 26px;
@@ -1178,6 +1183,7 @@ nav.scrolled .container .logo a img {
     flex-direction: column-reverse;
   }
   .partner .container .left-side {
+    max-width: 100%;
     width: 100%;
   }
   .partner .container .left-side .description {
@@ -1350,4 +1356,49 @@ footer .container .list-footer:has(.links) .links a:hover img {
   footer .container .list-footer:has(.links) .links {
     justify-content: center;
   }
-}/*# sourceMappingURL=index.css.map */
+}
+
+html[dir=rtl] .portfolio .container .right-side .container-sliders .slider-item .footer-slider .pagination-slider .swiper-slide:not(:last-child) {
+  margin-right: 0;
+  margin-left: 80px;
+}
+html[dir=rtl] .about .container .right-side .item:nth-child(5),
+html[dir=rtl] .about .container .right-side .item:nth-child(2) {
+  left: auto;
+  right: 10%;
+}
+html[dir=rtl] .about .container .right-side .item:nth-child(3),
+html[dir=rtl] .about .container .right-side .item:nth-child(4) {
+  left: auto;
+  right: 250px;
+}
+html[dir=rtl] .about .container .right-side .item h2.title::before {
+  border-color: #fff #fff transparent transparent;
+  transform: skew(30deg);
+}
+html[dir=rtl] .about .container .right-side .item:nth-child(4) h2.value::before, html[dir=rtl] .about .container .right-side .item:nth-child(5) h2.value::before {
+  border-color: transparent #fff #fff transparent;
+  transform: skew(-30deg);
+}
+html[dir=rtl] .portfolio .container .right-side .container-sliders .slider-item .swiper-slide .container-slider .content-slider {
+  translate: -100px -100px;
+}
+html[dir=rtl] .portfolio .container .right-side .container-sliders .slider-item .swiper-slide .container-slider .image-slider {
+  translate: 100px -100px;
+}
+html[dir=rtl] .portfolio .container .right-side .container-sliders .slider-item .swiper-slide.swiper-slide-active .container-slider .content-slider, html[dir=rtl] .portfolio .container .right-side .container-sliders .slider-item .swiper-slide.swiper-slide-active:nth-child(odd) .container-slider .content-slider,
+html[dir=rtl] .portfolio .container .right-side .container-sliders .slider-item .swiper-slide.swiper-slide-active .container-slider .image-slider, html[dir=rtl] .portfolio .container .right-side .container-sliders .slider-item .swiper-slide.swiper-slide-active:nth-child(odd) .container-slider .image-slider {
+  translate: 0 0;
+}
+html[dir=rtl] .partner .container .right-side .image video, html[dir=rtl] .partner .container .right-side .image img {
+  transform: rotateY(180deg);
+}
+@media (max-width: 992px) {
+  html[dir=rtl] .partner .container {
+    flex-direction: column;
+  }
+}
+html[dir=rtl] footer .container .toTopBTN {
+  right: auto;
+  left: 20px;
+}

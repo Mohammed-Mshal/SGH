@@ -38,9 +38,9 @@ const language = document.querySelector(".language");
 language.addEventListener("click", () => {
   const currentLocation = location.pathname;
   if (currentLocation.includes("/ar/")) {
-    location.href = location.href + currentLocation.replace("/ar/", "/");
+    location.href = currentLocation.replace("/ar/", "/");
   } else {
-    location.href = location.href + "ar" + currentLocation;
+    location.href =  "ar" + currentLocation;
   }
 });
 
