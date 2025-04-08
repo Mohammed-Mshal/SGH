@@ -1397,6 +1397,12 @@ footer{
         }
       }
     }
+    &:has(.copyright):not(:has(.responsive)){
+      display: flex;
+    }
+    &:has(.copyright):has(.responsive){
+      display: none;
+    }
    }
    @media (max-width:992px) {
     border-top-left-radius: 32px;
@@ -1423,7 +1429,12 @@ footer{
         }
       }
     }
-    
+    .list-footer:has(.copyright):not(:has(.responsive)){
+        display: none;
+    }
+    .list-footer:has(.copyright):has(.responsive){
+        display: flex;
+    }
    }
   }
 }

@@ -1329,6 +1329,12 @@ footer .container .list-footer:has(.links) .links a img {
 footer .container .list-footer:has(.links) .links a:hover img {
   filter: brightness(0.6);
 }
+footer .container .list-footer:has(.copyright):not(:has(.responsive)) {
+  display: flex;
+}
+footer .container .list-footer:has(.copyright):has(.responsive) {
+  display: none;
+}
 @media (max-width: 992px) {
   footer .container {
     border-top-left-radius: 32px;
@@ -1355,6 +1361,12 @@ footer .container .list-footer:has(.links) .links a:hover img {
   }
   footer .container .list-footer:has(.links) .links {
     justify-content: center;
+  }
+  footer .container .list-footer:has(.copyright):not(:has(.responsive)) {
+    display: none;
+  }
+  footer .container .list-footer:has(.copyright):has(.responsive) {
+    display: flex;
   }
 }
 
@@ -1401,4 +1413,4 @@ html[dir=rtl] .partner .container .right-side .image video, html[dir=rtl] .partn
 html[dir=rtl] footer .container .toTopBTN {
   right: auto;
   left: 20px;
-}
+}/*# sourceMappingURL=index.css.map */
