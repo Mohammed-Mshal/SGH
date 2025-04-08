@@ -112,6 +112,9 @@ $font-title-section:clamp(24px,3vw,48px);
 * {
   font-size: $normal-font;
 }
+html,body{
+  overflow-x: hidden;
+}
 nav {
   position: fixed;
   top: 0;
@@ -738,6 +741,7 @@ nav {
                 translate: 100px -100px;
                 opacity: 0;
                 transition: .4s .4s all ease-in-out;
+                padding-bottom: 40px;
                 .title{
                   overflow: hidden;
                   position: relative;
@@ -1165,6 +1169,10 @@ nav {
         object-position: center;
         height: 100%;
         width: 100%;
+        @media (max-width:992px) {
+          object-fit: contain;
+          
+        }
       }
     }
     
